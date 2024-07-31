@@ -1,9 +1,9 @@
 version: "1"
 packages:
   - name: "db"
-    path: "internal/db"
-    queries: "internal/db/sqlc/queries"
-    schema: "internal/db/sqlc/schema"
+    path: "internal/db/sqlc"
+    queries: "./sql/queries"
+    schema: "./sql/schema"
     engine: "sqlite"
     emit_json_tags: true
 

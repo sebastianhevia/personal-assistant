@@ -7,7 +7,7 @@ import (
     "time"
 
     "github.com/sebastianhevia/personal-assistant/internal/db"
-    "github.com/sebastianhevia/personal-assistant/internal/db/sqlc"
+    sqlc "github.com/sebastianhevia/personal-assistant/internal/db/sqlc"
     "github.com/sebastianhevia/personal-assistant/internal/tasks"
 )
 
