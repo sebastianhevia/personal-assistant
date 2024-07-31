@@ -12,7 +12,7 @@ import (
 
 func CreateTask(name, status string, dueDate time.Time, priority int, wg *sync.WaitGroup) {
     defer wg.Done()
-    queries := sqlc.New(db.Database)
+	queries := sqlc.New(db.Database:w http.ResponseWriter, r *http.Request)
     err := queries.CreateTask(context.Background(), sqlc.CreateTaskParams{
         Name:     name,
         Status:   status,
