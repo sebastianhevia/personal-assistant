@@ -6,7 +6,7 @@ import (
     "sync"
     "time"
 
-    "github.com/sebastianhevia/personal-assistant/internal/db"
+    "github.com/sebastianhevia/personal-assistant/internal/db/database"
     "github.com/sebastianhevia/personal-assistant/internal/db/sqlc"
     "github.com/sebastianhevia/personal-assistant/internal/tasks"
 )

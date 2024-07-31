@@ -6,13 +6,13 @@ import (
     "sync"
     "time"
 
-    "github.com/sebastianhevia/personal-assistant/internal/db"
+    "github.com/sebastianhevia/personal-assistant/internal/db/database"
     "github.com/sebastianhevia/personal-assistant/internal/db/sqlc"
 )
 
 func CreateTask(name, status string, dueDate time.Time, priority int, wg *sync.WaitGroup) {
     defer wg.Done()
-    queries := sqlc.New(db.Database)
+    queries := sqlc.New(database.Database)
     err := queries.CreateTask(context.Background(), sqlc.CreateTaskParams{
         Name:     name,
         Status:   status,
@@ -26,7 +26,7 @@ func CreateTask(name, status string, dueDate time.Time, priority int, wg *sync.W
 
 func GetTasks(statusFilter string, ch chan<- sqlc.Task, wg *sync.WaitGroup) {
     defer wg.Done()
-    queries := sqlc.New(db.Database)
+    queries := sqlc.New(database.Database)
     tasks, err := queries.GetTasks(context.Background(), statusFilter)
     if err != nil {
         fmt.Println("Error retrieving tasks:", err)
